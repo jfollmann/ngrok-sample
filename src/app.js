@@ -3,15 +3,15 @@ const os = require('os')
 const app = express()
 const port = 3000
 
-app.use((req, res, next) => {
+app.use((req, _res, next) => {
   console.log(`[${os.hostname()}] - ${req.method} ${req.originalUrl}`);
   next();
 })
 
-app.get('/', (req, res) => {
-  res.send('Hello World Follmann Express!')
+app.get('/', (_req, res) => {
+  return res.send('Sample Express!');
 })
 
 app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`)
-})
+  console.log(`Example app listening at http://localhost:${port}`);
+});
